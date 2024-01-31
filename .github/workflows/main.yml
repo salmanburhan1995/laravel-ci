@@ -42,3 +42,5 @@ jobs:
           username: ${{ secrets.username}}
           password: ${{ secrets.password}}
           server-dir: public_html/example-laravel/
+          passive: true
+          debug: true
