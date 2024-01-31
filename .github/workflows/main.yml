@@ -48,7 +48,7 @@ jobs:
       - name: 📂 Sync files
         uses:  SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.server }}
-          username: ${{ secrets.username}}
-          password: ${{ secrets.password}}
-          server-dir: public_html/example-laravel/
+          server: salburtechnologies.com
+          username: u396385344
+          password: S@lmanali1995!
+          server-dir: /domains/salburtechnologies.com/public_html/example-laravel
