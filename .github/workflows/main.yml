@@ -41,4 +41,4 @@ jobs:
           server: ${{ secrets.server }}
           username: ${{ secrets.username}}
           password: ${{ secrets.password}}
-          server_dir: public_html/example-laravel/
+          server-dir: public_html/example-laravel/
