@@ -51,4 +51,4 @@ jobs:
           server: salburtechnologies.com
           username: u396385344
           password: S@lmanali1995!
-          server-dir: /domains/salburtechnologies.com/public_html/example-laravel
+          server-dir: /domains/salburtechnologies.com/public_html/example-laravel/
