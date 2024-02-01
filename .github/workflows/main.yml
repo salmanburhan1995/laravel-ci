@@ -19,9 +19,9 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     strategy:
       matrix:
-        php-versions: ['8.x']
+        php-versions: ['latest']
         os: [ubuntu-latest]
-        node-versions: ['21.x']
+        node-versions: ['latest']
 
     steps:
       - uses: shivammathur/setup-php@v2
