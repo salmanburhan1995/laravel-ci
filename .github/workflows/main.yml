@@ -47,14 +47,6 @@ jobs:
       - name: Change Bootstrap Path
         if: github.ref == 'refs/heads/main'
         run: sed -i 's#bootstrap/#main/bootstrap/#g' index.php
-
-      - name: Deploy to Server
-        if: github.ref == 'refs/heads/main'
-        run: scp -r -P 65002 salmanburhan1995/laravel-ci u396385344@185.212.71.157:/domains/salburtechnologies.com/public_html/example-laravel
-
-      - name: Deploy to Staging
-        if: github.ref == 'refs/heads/staging'
-        run: scp -r -P 65002 salmanburhan1995/laravel-ci u396385344@185.212.71.157:/domains/salburtechnologies.com/public_html/example-laravel
         
       - name: Generate key
         run: php artisan key:generate
