@@ -50,11 +50,11 @@ jobs:
 
       - name: Deploy to Server
         if: github.ref == 'refs/heads/main'
-        run: scp -r * u396385344@185.212.71.157:/domains/salburtechnologies.com/public_html/example-laravel
+        run: scp -r ssh -p 65002 u396385344@185.212.71.157:/domains/salburtechnologies.com/public_html/example-laravel
 
       - name: Deploy to Staging
         if: github.ref == 'refs/heads/staging'
-        run: scp -r * u396385344@185.212.71.157-staging-server:/domains/salburtechnologies.com/public_html/example-laravel
+        run: scp -r ssh -p 65002 u396385344@185.212.71.157:/domains/salburtechnologies.com/public_html/example-laravel
       - name: Generate key
         run: php artisan key:generate
       - name: Directory Permissions
