@@ -21,7 +21,7 @@ jobs:
       matrix:
         php-versions: ['8.x']
         os: [ubuntu-latest]
-        node-versions: ['21.6.1']
+        node-versions: ['21.x']
 
     steps:
       - uses: shivammathur/setup-php@v2
