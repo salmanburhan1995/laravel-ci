@@ -46,7 +46,7 @@ jobs:
 
       - name: Change Bootstrap Path
         if: github.ref == 'refs/heads/main'
-        run: sed -i 's#bootstrap/#main/bootstrap/#g' index.php
+        run: sed -i 's#/../storage/framework/maintenance.php/#storage/framework/maintenance.php#g' index.php
         
       - name: Generate key
         run: php artisan key:generate
