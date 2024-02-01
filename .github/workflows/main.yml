@@ -2,7 +2,7 @@ name: Example-Project
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main","staging" ]
 
 jobs:
   laravel:
@@ -30,10 +30,34 @@ jobs:
       - uses: actions/checkout@v3
         with:
           node-version: ${{matrix.node-versions}}
+      
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        
+      - name: Install npm dependencies
+        run: npm install || exit 1
+        
+      - name: Build Assets (if needed)
+        run: npm run production || exit 1
+
+      - name: Move Public Folder to Main Folder
+        if: github.ref == 'refs/heads/main'
+        run: mv public/* .
+
+      - name: Change Bootstrap Path
+        if: github.ref == 'refs/heads/main'
+        run: sed -i 's#bootstrap/#main/bootstrap/#g' index.php
+
+      - name: Deploy to Server
+        if: github.ref == 'refs/heads/main'
+        run: scp -r * u396385344@185.212.71.157:/domains/salburtechnologies.com/public_html/example-laravel
+
+      - name: Deploy to Staging
+        if: github.ref == 'refs/heads/staging'
+        run: scp -r * u396385344@185.212.71.157-staging-server:/domains/salburtechnologies.com/public_html/example-laravel
       - name: Generate key
         run: php artisan key:generate
       - name: Directory Permissions
