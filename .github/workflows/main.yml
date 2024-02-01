@@ -39,9 +39,6 @@ jobs:
         
       - name: Install npm dependencies
         run: npm install || exit 1
-        
-      - name: Build Assets (if needed)
-        run: npm run production || exit 1
 
       - name: Move Public Folder to Main Folder
         if: github.ref == 'refs/heads/main'
